@@ -1,0 +1,26 @@
+{
+  "name": "ia",
+  "version": "1.0.0",
+  "description": "ia course ex 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:mutation": "stryker run",
+    "sca": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.0"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^9.4.0",
+    "@stryker-mutator/jest-runner": "^9.4.0",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}

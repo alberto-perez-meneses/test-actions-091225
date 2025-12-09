@@ -1,0 +1,27 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Pull production image
+      run: docker pull ghcr.io/${{ github.repository_owner }}/api:latest
+
+    - name: Deploy container (placeholder)
+      run: |
+        echo "Aquí ejecutarías el comando real de deployment"
+        echo "Ejemplos:"
+        echo "- flyctl deploy"
+        echo "- railway deploy"
+        echo "- docker compose up -d"

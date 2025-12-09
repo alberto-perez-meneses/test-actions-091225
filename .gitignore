@@ -1,0 +1,4 @@
+﻿.env
+
+# stryker temp files
+.stryker-tmp
