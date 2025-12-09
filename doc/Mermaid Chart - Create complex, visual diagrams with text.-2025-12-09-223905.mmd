@@ -1,0 +1,37 @@
+flowchart TD
+    %% Nodos
+    PR([Pull Request])
+    
+    CI[CI PIPELINE<br/>ci.yml]
+    SEC[SECURITY PIPE.<br/>security.yml]
+    
+    MERGE{ Merge a main<br/>permitido}
+    
+    BUILD[BUILD PIPELINE<br/>build.yml]
+    
+    REGISTRY[(Imagen en GitHub<br/>Container Registry)]
+    
+    DEPLOY[DEPLOY PIPE.<br/>deploy.yml]
+    
+    MANUAL(Manual)
+
+    %% Conexiones
+    PR --> CI
+    PR --> SEC
+    
+    CI --> MERGE
+    SEC --> MERGE
+    
+    MERGE --> BUILD
+    
+    BUILD --> REGISTRY
+    
+    REGISTRY --> DEPLOY
+    
+    %% El disparador manual apuntando al deploy
+    MANUAL -.-> DEPLOY
+
+    %% Estilos opcionales para que se vea mejor
+    %%style MERGE fill:#e1f5fe,stroke:#01579b
+    %%style REGISTRY fill:#fff3e0,stroke:#e65100
+    %%style MANUAL fill:#ffebee,stroke:#c62828,stroke-dasharray: 5 5
